@@ -6,6 +6,12 @@ const handleHome = (req, res) => {
 const handleLogin = (req, res) => {
     return res.send("Login");
 }
+const logger = (req, res, next) => {
+    console.log(`${req.method} ${req.url}`);
+    next();
+}
+
+app.use(logger)
 app.get("/", handleHome);
 app.get("/login", handleLogin);
 const handleListening = () => {
