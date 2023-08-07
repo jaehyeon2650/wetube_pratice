@@ -6,6 +6,8 @@ import videoRouter from "./routers/videoRouter";
 const app = express();
 const logger = morgan("dev");
 
+app.set("views", process.cwd() + "/src/views");
+app.set("view engine", "pug");
 app.use(logger);
 app.use("/", grobalRouter);
 app.use("/videos", videoRouter);
