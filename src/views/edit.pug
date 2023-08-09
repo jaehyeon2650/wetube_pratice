@@ -1,3 +1,6 @@
 extends base
 block content 
-    h1 Edit Video
+    h4 Change Title of video
+    form(method="POST")
+        input(type="text",placeholder="Video Title",value=video.title,name="title",required)
+        input(type="submit",value="Save")
