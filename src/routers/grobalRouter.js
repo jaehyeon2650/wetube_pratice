@@ -1,10 +1,10 @@
 import express from "express";
 import { trending, search } from "../controllers/videoControllers";
-import { login, join } from "../controllers/userControllers";
+import { getJoin, postJoin, getLogin, postLogin } from "../controllers/userControllers";
 const grobalRouter = express.Router();
 grobalRouter.get("/", trending);
-grobalRouter.get("/join", join);
-grobalRouter.get("/login", login);
+grobalRouter.route("/join").get(getJoin).post(postJoin);
+grobalRouter.route("/login").get(getLogin).post(postLogin);
 grobalRouter.get("/search", search);
 
 export default grobalRouter;
