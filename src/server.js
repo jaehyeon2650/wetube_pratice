@@ -22,11 +22,12 @@ app.use(session({
 }))
 app.use((req, res, next) => {
     req.sessionStore.all((error, sessions) => {
-        console.log(sessions);
         next();
     })
 })
+
 app.use(localMiddleware);
+app.use("/uploads", express.static("uploads"));
 app.use("/", grobalRouter);
 app.use("/videos", videoRouter);
 app.use("/users", userRouter);
